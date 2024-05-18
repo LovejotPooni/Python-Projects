@@ -1,0 +1,8 @@
+balance0 = 2000
+balance1 = balance0*0.08 + balance0
+balance2 = balance1*0.08 + balance1
+balance3 = balance2*0.08 + balance2
+
+print("After year 1, the balance is", balance1)
+print("After year 2, the balance is", balance2)
+print("After year 3, the balance is", balance3)

@@ -1,0 +1,48 @@
+NUM_CUSTOMERS = amount = int(input("Enter the number of top customers: "))
+
+#Defing the main function
+def main():
+    #The two list, one for customer's names and the second list for sales amount
+    names = []
+    sales = []
+
+    #Taking the name of the customer as well as the sale amount and storing them in two lists.
+    amount = input("Enter the sale amount (x to quit): ")
+    while amount != 'x':
+        sales.append(int(amount))
+        name = input("Enter the customer's name: ")
+        names.append(name)
+
+        amount = input ("Enter the sale amount (x to quit): ")
+    #The name of the best customer(s) will be displayed due to the nameOfBestCustomers function finding the
+    #desired results.
+    bestNames = nameOfBestCustomers(sales, names, NUM_CUSTOMERS)
+    print("The best", len(bestNames), "customers were:")
+    for name in bestNames:
+        print(name)
+
+#Defining the function that will find the desire amount of top customers
+def nameOfBestCustomers(sales, customers, topN):
+    best = []
+
+    temp_Sales = list(sales)
+    temp_Customers = list(customers)
+
+    #The while statement below will find the desired amount of top customers
+    while len(temp_Sales) > 0 and len(best) < topN:
+        largest = max(temp_Sales)
+
+        #This for loop will record the name of the best customer.
+        for i in range(0, len(temp_Sales)):
+            if temp_Sales[i] == largest and len(best) < topN:
+                best.append(temp_Customers[i])
+
+        #This while loop will remove the sales and customers from the temp lists.
+        while largest in temp_Sales:
+            i = temp_Sales.index(largest)
+            temp_Sales.pop(i)
+            temp_Customers.pop(i)
+    return best
+
+#Calling the main function so the program can execute
+main()

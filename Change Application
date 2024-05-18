@@ -1,0 +1,23 @@
+due = int(input("Enter the amount due in pennies:"))
+given = int(input("Enter the amount received in pennies:"))
+print("The change is:")
+
+#   The code here computes the change into dollars, quarters, dimes, nickels and pennies
+#   then prints it out for the user to see in a list
+change = given - due
+dollars = change // 100
+change = change % 100
+print(" ", dollars, "dollars")
+
+quarters = change // 25
+change = change % 25
+print(" ", quarters, "quarters")
+
+dimes = change // 10
+change = change % 10
+print(" ", dimes, "dimes")
+
+nickels = change // 5
+pennies = change % 5
+print(" ", nickels, "nickels")
+print(" ", pennies, "pennies")

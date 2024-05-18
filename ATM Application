@@ -1,0 +1,22 @@
+CORRECT_PIN = "9554"
+CHECKING = 1450.56
+SAVINGS = 10.0
+
+# Ask the user for the pin.
+pin = (input("Enter your PIN: "))
+
+# Checks the user for the wrong pin. 3 failures will result with the account being block.
+if pin != CORRECT_PIN:
+    pin = (input("Enter your PIN: "))
+    if pin != CORRECT_PIN:
+        pin = (input("Enter your PIN: "))
+        if pin != CORRECT_PIN:
+            print("Your bank card is blocked")
+
+# Asks the user if they want to see their checking or savings account.
+if pin == CORRECT_PIN:
+    account = input("Please enter c for checking, s for savings: ")
+    if account == "s":
+        print("Your savings balance is: $%.2f" % SAVINGS)
+    else:
+        print("Your checking balance is: $%.2f" % CHECKING)

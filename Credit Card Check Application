@@ -1,0 +1,30 @@
+creditCardNumber = input("Enter an 8 digit credit card number: ")
+oddNum = 0
+evenNum = 0
+
+# Two for loops are used. One is used to keep track of the odd numbers and add them up. This is done be counting the
+# number from right-hand side to the left-hand side. The second for loop is used to keep track of the even numbers.
+# This is done be counting the even numbers from the left-hand side to the right-hand side and adding the odd numbers
+# into the oddNum variable. The even numbers are doubled and divided into two part by using the // and % math
+# operators and then added all up into the evenNum variable. The // operator takes the whole number from the
+# divison, while the % operator will take the decimal remainder from the division.
+
+
+for i in range(7, 0, -2):
+    oddNum = oddNum + int(creditCardNumber[i])
+for i in range(6, -1, -2):
+    double = int(creditCardNumber[i]) * 2
+    evenNum = evenNum + double // 10 + double % 10
+
+# The total variable adds the odd and even numbers from the credit card.
+
+total = oddNum + evenNum
+
+# An if statement is used to see whether the credit card is a valid number by seeing if the total ends with a zero. This
+# is done by using the % math operator as it will tell us the remainder left from the division. If the remainder is 0,
+# then the credit card is valid. If the remainder is not 0, then the credit card is not valid.
+
+if total % 10 == 0:
+    print("That number is valid.")
+else:
+    print("That number is not valid.")

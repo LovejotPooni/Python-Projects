@@ -1,0 +1,28 @@
+from random import randint
+
+# This programs takes a small and large number from the user and then the computer randomly selects a
+# number between the given range. Then the user will have 5 attempts to guess the target number.
+
+# Ask the users for a small and large number.
+smallNum = int(input("Enter a small positive number: "))
+largeNum = int(input("Enter a large positive number: "))
+
+# Takes the number from the user and randomly selects a number between the given range
+target = randint(smallNum, largeNum)
+guess = 0
+count = 0
+
+# While loop is used for the game. Count keeps track of the number of attempts of guessing the target number.
+# if and elif statements are used for when finding the target number with the number of attempt. Also used for
+# checking if the user is higher or lower than the target number and when the five attempts are over.
+while guess != target and count < 5:
+    count += 1
+    guess = int(input("Enter your guess: "))
+    if guess == target:
+        print("You've got it in", count, "tries!")
+    elif count == 5:
+        print("Game over! Number is", target)
+    elif guess < target:
+        print("Guess higher")
+    elif guess > target:
+        print("Guess lower")

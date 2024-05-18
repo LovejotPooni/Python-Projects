@@ -1,0 +1,37 @@
+gb = 1000000000
+pixel_size = 800 * 600
+
+#computing the size of a GIF image: byte is 1, compression is 5
+byteSize = 1
+compression_ratio = 5
+gif = int((pixel_size*byteSize)/compression_ratio)
+
+#computing the size of a JPEG image: byte is 3, compression is 25
+byteSize = 3
+compression_ratio = 25
+jpeg = int((pixel_size*byteSize)/compression_ratio)
+
+#computing the size of a PNG image: byte is 3, compression is 8
+byteSize = 3
+compression_ratio = 8
+png = int((pixel_size * byteSize)/compression_ratio)
+
+#computing the size of a TIFF image: byte is 6, there is no compression
+byteSize = 6
+tiff = int((pixel_size * byteSize))
+
+USB_storage = input("Enter USB size (GB): ")
+
+#taking the storage size given by the user and dividing it by the different image
+#types
+storage = gb * int(USB_storage)
+gif_size = storage // gif
+jpeg_size = storage // jpeg
+png_size = storage // png
+tiff_size = storage // tiff
+
+#prints out all the information
+print("\n" "GIF format images that can be stored: ", gif_size)
+print("JPEG format images that can be stored:", jpeg_size)
+print("PNG format images that can be stored: ", png_size)
+print("TIFF format images that can be stored:", tiff_size)

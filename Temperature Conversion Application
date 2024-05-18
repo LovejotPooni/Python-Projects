@@ -1,0 +1,28 @@
+def main():
+    #Displays how the program works for the end user
+    print('This program will convert temperatures (Fahrenheit/Celsius)')
+    print('Enter (F) or (f) to convert Fahrenheit to Celsius')
+    print('Enter (C) or (c) to convert Celsius to Fahrenheit')
+
+    #Lets the end user chooses which conversion they want
+    which = input('Enter selection: ')
+    #Checks to see if the end user is entering the F, f, C, or c
+    while which != 'F' and which != 'f' and which != 'C' and which != 'c':
+        which = input('Re-enter selection: ')
+    #Lets the end user choose their desire temperature to be converted
+    temp = float(input('Enter temperature to convert: '))
+    conversion(which, temp)
+
+#This function does the temperature conversion and checks for which temp converstion occurs
+def conversion(which, temp):
+    if which == 'F' or which == 'f':
+        #Converts Fahrenheit to Celsius
+        converted_temp = (temp - 32) * 5/9
+        print(temp, 'degress Fahrenheit equals', round(converted_temp, 1), 'degrees Celsius')
+    else:
+        #Converts Celsius to Fahrenheit
+        converted_temp = (9/5 * temp) + 32
+        print(temp, 'degrees Celsius equals', round(converted_temp, 1), 'degrees Fahrenheit')
+
+#Calling the main function so that the program can run
+main()

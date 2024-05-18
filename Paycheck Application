@@ -1,0 +1,21 @@
+name = input("Enter employee name: ")
+hourlyRate = input("Enter the hourly rate: ")
+totalHours = input("Enter the number of hours worked: ")
+
+#converts pay rate and hours worked into a float variable
+payRate = float(hourlyRate)
+hoursWork = float(totalHours)
+
+# an if else statement that checks for hours above 40 and
+# then calculates total pay with overtime hours and without
+# overtime hours in the else statement
+if hoursWork > 40.0:
+    OTHours = hoursWork - 40
+    OTPay = payRate + (payRate / 2)
+    totalPay = (40 * payRate) + (OTHours * OTPay)
+else:
+    totalPay = payRate * hoursWork
+
+# prints out all the information above
+print("Employee:", name)
+print("The pay will be $%.2f for %.1f hours of work." % (totalPay, hoursWork))

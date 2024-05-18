@@ -1,0 +1,21 @@
+def main():
+    income = float((input("What is the household income (-1 to quit)? ")))
+    while (income != -1):
+        numKids = int((input("How many Children? ")))
+        totalAmount = assistance(income, numKids)
+        print("The assistance amount is $%.2f\n" % totalAmount)
+        income = float((input("What is the household income (-1 to quit)? ")))
+
+# This is the function that calculates the amount of assistance given to the household and returns it to the main
+# function.
+def assistance(income, numKids):
+    if income > 30000 and income <= 40000 and numKids >= 3:
+        return 1000 * numKids
+    if income >= 20000 and income <= 30000 and numKids >= 2:
+        return 1500 * numKids
+    if income < 20000:
+        return 2000 * numKids
+    return 0
+
+# The main function is called so the program can execute
+main()
